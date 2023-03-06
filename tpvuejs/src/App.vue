@@ -1,5 +1,5 @@
 <template>
-
+  <div>
       <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
         <span class="navbar-brand">VIE-IE-ED</span>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -18,4 +18,5 @@
       </nav>
 
   <router-view/>
+    </div>
 </template>
