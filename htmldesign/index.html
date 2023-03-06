@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- script js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="../js/index.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!-- App CSS -->
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+
+  </head>
+
+  <body>
+
+    <div id="app">
+        {{message}}
+        <span v-if="seen">Je suis pris !</span>
+        <span v-else>Je suis caché</span>
+        <div>
+            <h5 v-bind:class="class1">RED</h5>
+            <h5 v-bind:class="class2">BLUE</h5>
+        </div>
+    </div>
+
+    <!-- <span v-bind:title='message'>Hello World !</span> -->
+
+
+    <div class="container-fluid">
+        
+      <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+        <span class="navbar-brand">VIE-IE-ED</span>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Acceuil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="import.html">Import</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="export.html">Export</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="row">
+        <div class="col mt-3">
+          <div class="card">
+            <div class="card-header">Configuration Globale</div>
+            <div class="card-body">
+              <div class="form-row">
+                <label for="inputName">Nom</label>
+                <input type="text" class="form-control" id="inputName" />
+              </div>
+              <div class="form-row">
+                <label for="inputDescription">Description</label>
+                <textarea
+                  class="form-control"
+                  id="inputDescription"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputTemplateID">ID du Template</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputTemplateID"
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputHostnameTemplate"
+                    >Nom d'hôte du Template</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputHostnameTemplate"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="inputMemory">Memoire</label>
+                  <input type="text" class="form-control" id="inputMemory" />
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputDisksize">Taille du HDD</label>
+                  <input type="text" class="form-control" id="inputDisksize" />
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputCore">Coeur</label>
+                  <input type="text" class="form-control" id="inputCore" />
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputSocket">Socket</label>
+                  <input type="text" class="form-control" id="inputSocket" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputLogin">Login</label>
+                  <input type="text" class="form-control" id="inputLogin" />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword">Mot de passe</label>
+                  <input type="text" class="form-control" id="inputPassword" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="inputSSHKey">Clé SSH</label>
+                <textarea
+                  class="form-control"
+                  id="inputSSHKey"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-3">
+        <div class="card-header">
+          <form class="form-inline">
+            <div class="form-group mb-2">
+              <label for="inputNumberOfVM">Machines Virtuelles</label>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <input
+                type="text"
+                class="form-control"
+                id="inputNumberOfVM"
+                placeholder="Nombre de VM"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="card-body">
+          <div class="card-columns">
+            <div class="card bg-light">
+              <div class="card-header">
+                <div class="form-inline">
+                  <label>VM 1</label>
+                  <button
+                    class="btn x-square-fill ml-auto"
+                    type="button"
+                  ></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="inputName">Mémoire</label>
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder=""
+                      aria-label="Exemple de texte avec un bouton Addon"
+                      aria-describedby="button-addon1"
+                    />
+                    <div class="input-group-prepend">
+                      <button class="btn trash-fill" type="button"></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="inputEmail3">New Parameter</label>
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option disabled>Mémoire</option>
+                    <option>Taille HDD</option>
+                    <option>Coeur</option>
+                    <option>Socket</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="card bg-light">
+              <div class="card-header">
+                <div class="form-inline">
+                  <label>VM 2</label>
+                  <button
+                    class="btn x-square-fill ml-auto"
+                    type="button"
+                  ></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="inputName">Mémoire</label>
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder=""
+                      aria-label="Exemple de texte avec un bouton Addon"
+                      aria-describedby="button-addon1"
+                    />
+                    <div class="input-group-prepend">
+                      <button class="btn trash-fill" type="button"></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="inputEmail3">Nouveau Paramètre</label>
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option disabled>Mémoire</option>
+                    <option>Taille HDD</option>
+                    <option>Coeur</option>
+                    <option>Socket</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
