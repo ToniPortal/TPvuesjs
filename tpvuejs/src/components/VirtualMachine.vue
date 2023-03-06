@@ -43,9 +43,6 @@
 
 <script>
 
-import { data } from "../js/store.js"
-
-
 export default {
   name: "VirtualMachine",
   props: {

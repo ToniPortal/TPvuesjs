@@ -109,6 +109,9 @@
 // @ is an alias to /src
 import VirtualMachine from "@/components/VirtualMachine.vue";
 
+import datas from "../../js/store.js";
+
+
 export default {
   name: "HomeView",
   components: {
@@ -116,7 +119,7 @@ export default {
   },
   data() {
     return {
-      input: 1,
+      input: datas.number,
     }
   }
 };
