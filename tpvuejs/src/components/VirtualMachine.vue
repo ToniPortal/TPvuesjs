@@ -14,7 +14,6 @@
             <label for="inputName">Mémoire</label>
             <div class="input-group mb-3">
               <input
-              v-model="memoire"
                 type="text"
                 class="form-control"
                 placeholder=""
