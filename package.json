@@ -1,0 +1,17 @@
+{
+  "name": "tpvuesjs",
+  "version": "1.0.0",
+  "description": "tp vues",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "keywords": [
+    "vue",
+    "js",
+    "vuejs",
+    "nodejs"
+  ],
+  "author": "ToniPortal",
+  "license": "MIT"
+}
