@@ -1,11 +1,12 @@
 <template>
-  
+
   <div class="card-body">
     <div class="card-columns">
       <div class="card bg-light">
         <div class="card-header">
           <div class="form-inline">
-            <label>{{msg}}</label>
+            <p>Max: {{test}}  </p>
+            <label>VM {{msg}}</label>
             <button class="btn x-square-fill ml-auto" type="button"></button>
           </div>
         </div>
@@ -41,14 +42,17 @@
 </template>
 
 <script>
-
 export default {
   name: "VirtualMachine",
   props: {
-    msg: String,
+    msg: Int32Array,
+    test: Int32Array,
+  },
+  data () {
+    return {
+      paf: this.test,
+    }
   }
+
 };
-
-
-
 </script>

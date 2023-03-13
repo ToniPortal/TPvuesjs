@@ -90,16 +90,15 @@
               class="form-control"
               id="inputNumberOfVM"
               placeholder="Nombre de VM"
-              v-model="input"
+              v-model.number="input"
             />
-            <p>Il reste {{input}} VM</p>
+            <p v-bind:test="input">Il reste {{ input }} VM</p>
           </div>
         </form>
       </div>
 
-
       <div id="vmapp" v-bind:key="i" v-for="i in input">
-        <VirtualMachine v-bind:msg=i />
+          <VirtualMachine v-bind:msg="i" v-bind:test=input />
       </div>
     </div>
   </div>
@@ -111,7 +110,6 @@ import VirtualMachine from "@/components/VirtualMachine.vue";
 
 import datas from "../../js/store.js";
 
-
 export default {
   name: "HomeView",
   components: {
@@ -120,7 +118,7 @@ export default {
   data() {
     return {
       input: datas.number,
-    }
-  }
+    };
+  },
 };
 </script>

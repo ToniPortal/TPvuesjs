@@ -1,5 +1,5 @@
-// import HomeView from "../src/components/HomeView.vue";
-// console.log(HomeView)
+import VirtualMachine from "../src/components/VirtualMachine.vue";
+console.log(VirtualMachine.data)
 
 export default {
     number: 5

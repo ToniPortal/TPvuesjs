@@ -20,3 +20,9 @@
   <router-view/>
     </div>
 </template>
+
+<style>
+* {
+  overflow-x: hidden;
+}
+</style>
