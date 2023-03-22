@@ -100,7 +100,7 @@ export default {
   },
   data() {
     return {
-      mem: datas.memoire,
+      mem: datas.vm[0].memoire,
       hdd: datas.hdd,
       coeur: datas.coeur,
       socket: datas.socket
