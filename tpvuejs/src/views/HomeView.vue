@@ -38,19 +38,19 @@
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label for="inputMemory">Memoire</label>
-                <input type="text" class="form-control" id="inputMemory" />
+                <input type="text" class="form-control" id="inputMemory" v-model="memoire.memoire" />
               </div>
               <div class="form-group col-md-3">
                 <label for="inputDisksize">Taille du HDD</label>
-                <input type="text" class="form-control" id="inputDisksize" />
+                <input type="text" class="form-control" id="inputDisksize" v-model="hdd.hdd" />
               </div>
               <div class="form-group col-md-3">
                 <label for="inputCore">Coeur</label>
-                <input type="text" class="form-control" id="inputCore" />
+                <input type="text" class="form-control" id="inputCore" v-model="coeur.coeur" />
               </div>
               <div class="form-group col-md-3">
                 <label for="inputSocket">Socket</label>
-                <input type="text" class="form-control" id="inputSocket" />
+                <input type="text" class="form-control" id="inputSocket" v-model="socket.socket" />
               </div>
             </div>
 
@@ -73,32 +73,11 @@
                 rows="3"
               ></textarea>
             </div>
+
+              <NumberMachine></NumberMachine>
+
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="card mt-3">
-      <div class="card-header">
-        <form class="form-inline">
-          <div class="form-group mb-2">
-            <label for="inputNumberOfVM">Machines Virtuelles</label>
-          </div>
-          <div class="form-group mx-sm-3 mb-2">
-            <input
-              type="number"
-              class="form-control"
-              id="inputNumberOfVM"
-              placeholder="Nombre de VM"
-              v-model.number="input"
-            />
-            <p v-bind:test="input">Il reste {{ input }} VM</p>
-          </div>
-        </form>
-      </div>
-
-      <div id="vmapp" v-bind:key="i" v-for="i in input">
-          <VirtualMachine v-bind:msg="i" v-bind:test=input />
       </div>
     </div>
   </div>
@@ -106,18 +85,22 @@
 
 <script>
 // @ is an alias to /src
-import VirtualMachine from "@/components/VirtualMachine.vue";
 
-import datas from "../../js/store.js";
+import NumberMachine from "@/components/NumberMachine.vue";
+
+import { datas } from "../store.js";
 
 export default {
   name: "HomeView",
   components: {
-    VirtualMachine,
+    NumberMachine,
   },
   data() {
     return {
-      input: datas.number,
+      socket: datas,
+      memoire: datas,
+      hdd: datas,
+      coeur: datas
     };
   },
 };
