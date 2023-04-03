@@ -43,15 +43,15 @@ export default {
   data() {
     return {
       store: datas,
-      textjson: datas.import,
+      textjson: datas.import
     };
   },
   methods: {
     importjson() {
-      datas.import.push(JSON.stringify(this.textjson));
+      (this.datas.import).push(JSON.stringify(this.textjson))
       console.log("importJson effectuer : \n" + this.textjson);
       console.log(datas.import);
     },
-  },
+  }
 };
 </script>
