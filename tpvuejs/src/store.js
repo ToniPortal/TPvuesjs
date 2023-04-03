@@ -4,6 +4,7 @@ export const datas = {
     memoire: [0],
     hdd: [0],
     coeur: [0],
-    socket: [0]
-
+    socket: [0],
+    import: [],
+    export: []
 };
