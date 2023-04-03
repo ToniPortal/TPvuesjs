@@ -38,19 +38,19 @@
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label for="inputMemory">Memoire</label>
-                <input type="text" class="form-control" id="inputMemory" v-model="memoire.memoire" />
+                <input type="text" class="form-control" id="inputMemory"/>
               </div>
               <div class="form-group col-md-3">
                 <label for="inputDisksize">Taille du HDD</label>
-                <input type="text" class="form-control" id="inputDisksize" v-model="hdd.hdd" />
+                <input type="text" class="form-control" id="inputDisksize"/>
               </div>
               <div class="form-group col-md-3">
                 <label for="inputCore">Coeur</label>
-                <input type="text" class="form-control" id="inputCore" v-model="coeur.coeur" />
+                <input type="text" class="form-control" id="inputCore" />
               </div>
               <div class="form-group col-md-3">
                 <label for="inputSocket">Socket</label>
-                <input type="text" class="form-control" id="inputSocket" v-model="socket.socket" />
+                <input type="text" class="form-control" id="inputSocket" />
               </div>
             </div>
 
@@ -100,8 +100,8 @@ export default {
       socket: datas,
       memoire: datas,
       hdd: datas,
-      coeur: datas
+      coeur: datas,
     };
-  },
+  }
 };
 </script>
