@@ -27,7 +27,7 @@
                 placeholder=""
                 aria-label="Exemple de texte avec un bouton Addon"
                 aria-describedby="button-addon1"
-                v-model="store.memoire[lequel]"
+                v-model="vmemoire"
               />
               <div class="input-group-prepend">
                 <button class="btn trash-fill" type="button"></button>
@@ -42,7 +42,7 @@
                 placeholder=""
                 aria-label="Exemple de texte avec un bouton Addon"
                 aria-describedby="button-addon1"
-                v-model="store.hdd[lequel]"
+                
               />
               <div class="input-group-prepend">
                 <button class="btn trash-fill" type="button"></button>
@@ -57,7 +57,7 @@
                 placeholder=""
                 aria-label="Exemple de texte avec un bouton Addon"
                 aria-describedby="button-addon1"
-                v-model="store.coeur[lequel]"
+               
               />
               <div class="input-group-prepend">
                 <button class="btn trash-fill" type="button"></button>
@@ -72,7 +72,7 @@
                 placeholder=""
                 aria-label="Exemple de texte avec un bouton Addon"
                 aria-describedby="button-addon1"
-                v-model="store.socket[lequel]"
+               
               />
               <div class="input-group-prepend">
                 <button class="btn trash-fill" type="button"></button>
@@ -96,13 +96,27 @@ export default {
   data() {
     return {
       store: datas,
-      lequel: 0,
-      nbvm: datas
+      vmemoire: 0
     };
   },
   mounted() {
-    this.lequel = this.msg;
+    console.log("Meire: " + this.vmemoire)
+    //this.memoire = this.store.liste[this.msg].memoire;
+    //console.log("Store mem: " + this.store.liste[this.msg]["memoire"])
+    if(this.store.liste[this.msg] != undefined){
+
+    console.log("Store Mem = ",this.store.liste[this.msg].id)
+
+    }
   },
+  watch: {
+    changeinfo() {
+
+      this.store.liste[this.msg].memoire = this.memoire;
+
+    },
+  },
+  /*
   methods: {
     remove() {
       
@@ -110,7 +124,7 @@ export default {
       this.nbvm.number--;
       
     }
-  }
+  }*/
 
 };
 </script>

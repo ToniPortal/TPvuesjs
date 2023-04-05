@@ -11,14 +11,14 @@
             class="form-control"
             id="inputNumberOfVM"
             placeholder="Nombre de VM"
-            v-model="nbvm.number"
+            v-model="inputnumber"
           />
-          <p>Il reste {{ nbvm.number }} VM</p>
+          <p>Il reste {{ data.number }} VM</p>
         </div>
       </form>
     </div>
 
-    <div id="vmapp" v-bind:key="i" v-for="i in nbvm.number">
+    <div id="vmapp" v-bind:key="i" v-for="i in this.inputnumber">
       <VirtualMachine v-bind:msg="i"> </VirtualMachine>
     </div>
   </div>
@@ -36,8 +36,37 @@ export default {
   },
   data() {
     return {
-      nbvm: datas
+      data: datas,
+      nbvm: datas.number,
+      inputnumber: 0
     };
+  },
+    mounted() {
+      this.inputnumber = this.data.number
+       
+    },
+watch: {
+    inputnumber() {
+      this.vmpaf();
+
+      this.data.number = this.inputnumber
+      console.log("Inputenumber: "+this.inputnumber)
+
+    },
+  },
+  methods: {
+    vmpaf() {
+      this.data.liste = [];
+
+      for (let i = 0; i < this.inputnumber; i++) {
+        this.data.liste.push({
+          id: this.data.liste.length,
+          memoire: "",
+          
+        });
+        console.log("I:"+i)
+      }
+    },
   }
   
 };
