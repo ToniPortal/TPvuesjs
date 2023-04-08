@@ -13,13 +13,13 @@
             placeholder="Nombre de VM"
             v-model="inputnumber"
           />
-          <p>Il reste {{ inputnumber }} VM</p>
+          <p>Il reste {{ data.number }} VM</p>
         </div>
       </form>
     </div>
 
-    <div id="vmapp" v-for="i in data.liste" :key="data.liste[i]">
-      <VirtualMachine> </VirtualMachine>
+    <div id="vmapp" v-bind:key="i" v-for="i in this.inputnumber">
+      <VirtualMachine v-bind:msg="i"> </VirtualMachine>
     </div>
   </div>
 </template>
@@ -38,24 +38,36 @@ export default {
     return {
       data: datas,
       nbvm: datas.number,
-      inputnumber: 0,
+      inputnumber: 0
     };
   },
-  watch: {
+    mounted() {
+      this.inputnumber = this.data.number
+       
+    },
+watch: {
     inputnumber() {
-      this.vmpush();
+      this.vmpaf();
 
-      this.data.number = this.inputnumber;
+      this.data.number = this.inputnumber
+      console.log("Inputenumber: "+this.inputnumber)
+
     },
   },
   methods: {
-    vmpush() {
+    vmpaf() {
       this.data.liste = [];
 
       for (let i = 0; i < this.inputnumber; i++) {
-        console.log(i);
+        this.data.liste.push({
+          id: this.data.liste.length,
+          memoire: "",
+          
+        });
+        console.log("I:"+i)
       }
     },
-  },
+  }
+  
 };
 </script>
