@@ -17,9 +17,12 @@
         </div>
       </form>
     </div>
-
-    <div id="vmapp" v-bind:key="i" v-for="i in this.inputnumber">
-      <VirtualMachine v-bind:msg="i"> </VirtualMachine>
+    <div class="card-body">
+      <div class="card-columns">
+        <div id="vmapp" v-bind:key="i" v-for="i in this.data.number">
+          <VirtualMachine v-bind:msg="i"> </VirtualMachine>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -38,36 +41,50 @@ export default {
     return {
       data: datas,
       nbvm: datas.number,
-      inputnumber: 0
+      inputnumber: 0,
+      inputonstart: 0,
     };
   },
-    mounted() {
-      this.inputnumber = this.data.number
-       
-    },
-watch: {
+  mounted() {
+    console.log("[Store] Inside :", this.data);
+    this.inputnumber = this.data.number;
+    this.inputonstart = this.data.number
+  },
+  watch: {
     inputnumber() {
       this.vmpaf();
 
-      this.data.number = this.inputnumber
-      console.log("Inputenumber: "+this.inputnumber)
-
+      this.data.number = this.inputnumber;
+      // console.log("Inputenumber: " + this.inputnumber);
     },
   },
   methods: {
     vmpaf() {
-      this.data.liste = [];
+      if (this.data.liste.length == 0) {
+        console.log("Reset Data : ", this.data.liste);
+        this.data.liste = [];
 
-      for (let i = 0; i < this.inputnumber; i++) {
-        this.data.liste.push({
-          id: this.data.liste.length,
-          memoire: "",
-          
-        });
-        console.log("I:"+i)
+        for (let i = 0; i < this.inputnumber + 1; i++) {
+          this.data.liste.push({
+            id: this.data.liste.length,
+            memoire: "MEMOIREVIDE",
+          });
+          // console.log("I:" + i);
+        }
       }
+
+     else {
+        console.log("Add data : ", this.data.liste);
+
+        for (let i = this.inputonstart; i < this.inputnumber + 1; i++) {
+          this.data.liste.push({
+            id: this.data.liste.length,
+            memoire: "MEMOIREVIDE",
+          });
+        }
+      }
+
     },
-  }
-  
+  },
 };
 </script>
